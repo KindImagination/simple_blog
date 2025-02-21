@@ -1,0 +1,29 @@
+{
+  "language": {
+    "code_comments": "en",
+    "commit_messages": "en",
+    "documentation": "en",
+    "variable_naming": "en"
+  },
+  "rules": {
+    "comments": {
+      "must_be_in_english": true,
+      "min_words": 3,
+      "max_words": 50
+    },
+    "naming": {
+      "components": "PascalCase",
+      "files": "kebab-case",
+      "variables": "camelCase",
+      "constants": "UPPER_SNAKE_CASE",
+      "database_tables": "PascalCase",
+      "api_endpoints": "kebab-case"
+    }
+  },
+  "ignore": [
+    "node_modules",
+    "dist",
+    ".nuxt",
+    "*.md"
+  ]
+} 
