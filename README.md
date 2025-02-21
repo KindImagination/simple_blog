@@ -11,4 +11,3 @@ A modern blog platform built with Nuxt.js 3, Prisma, and Tailwind CSS.
 
 ## Getting Started
 
-See [PROJECT_RULES.md](PROJECT_RULES.md) for detailed project structure and coding standards.
