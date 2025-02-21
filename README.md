@@ -1,118 +1,75 @@
-# Simple Blog
+# Nuxt Minimal Starter
 
-A modern blog platform built with Nuxt.js 3, Prisma, and Tailwind CSS.
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Tech Stack
+## Setup
 
-- Frontend: Nuxt.js 3
-- Database ORM: Prisma
-- Styling: Tailwind CSS
-- Database: PostgreSQL
+Make sure to install dependencies:
 
-## Prerequisites
+```bash
+# npm
+npm install
 
-- Node.js (v16 or higher)
-- PostgreSQL
-- pnpm (recommended)
+# pnpm
+pnpm install
 
-## Quick Start
+# yarn
+yarn install
 
-1. Clone the repository
-2. Install dependencies with `pnpm install`
-3. Copy `.env.example` to `.env`
-4. Start dev server with `pnpm dev`
+# bun
+bun install
+```
 
-## Documentation
+## Development Server
 
-- [Project Rules](PROJECT_RULES.md)
-- [Roadmap](ROADMAP.md)
+Start the development server on `http://localhost:3000`:
 
-## License
+```bash
+# npm
+npm run dev
 
-MIT
+# pnpm
+pnpm dev
 
-## Features & Layout
+# yarn
+yarn dev
 
-### Public Pages
+# bun
+bun run dev
+```
 
-1. Home Page (`/`)
-   - Latest blog posts grid
-   - Featured posts carousel
-   - Categories navigation
-   - Search bar
-   - Responsive layout
+## Production
 
-2. Blog Post Page (`/post/[id]`)
-   - Rich text content
-   - Author information
-   - Publication date
-   - Categories and tags
-   - Comments section
-   - Share buttons
-   - Related posts
+Build the application for production:
 
-3. Category Page (`/category/[slug]`)
-   - Posts filtered by category
-   - Category description
-   - Pagination
+```bash
+# npm
+npm run build
 
-4. Author Page (`/author/[id]`)
-   - Author profile
-   - Author's posts
-   - Social links
+# pnpm
+pnpm build
 
-### User Features
+# yarn
+yarn build
 
-1. Authentication
-   - Email/Password login
-   - Social auth (Google, GitHub)
-   - Password recovery
-   - Email verification
+# bun
+bun run build
+```
 
-2. User Dashboard (`/dashboard`)
-   - Post management
-   - Profile settings
-   - Statistics
-   - Drafts
-   - Comments management
+Locally preview production build:
 
-3. Post Editor (`/dashboard/post/[id]`)
-   - Rich text editor (TipTap)
-   - Image upload with preview
-   - Category and tag selection
-   - Draft auto-save
-   - SEO settings
-   - Publication scheduling
+```bash
+# npm
+npm run preview
 
-### Admin Features
+# pnpm
+pnpm preview
 
-1. Admin Dashboard (`/admin`)
-   - User management
-   - Content moderation
-   - Site statistics
-   - System settings
+# yarn
+yarn preview
 
-2. Category Management
-   - Create/Edit categories
-   - Category hierarchy
-   - Category permissions
+# bun
+bun run preview
+```
 
-3. Analytics
-   - View counts
-   - User engagement
-   - Popular content
-   - Search analytics
-
-### Additional Features
-
-- Dark/Light theme
-- Mobile-first design
-- SEO optimization
-- RSS feed
-- Newsletter integration
-- Social media sharing
-- Reading time estimation
-- Code syntax highlighting
-- Image optimization
-- Lazy loading
-
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
