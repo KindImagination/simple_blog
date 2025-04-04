@@ -1,6 +1,8 @@
 <template>
-  <div class="min-h-screen bg-background font-sans antialiased">
-    <NuxtPage />
+  <div class="min-h-screen bg-[#0B0B0F] font-sans antialiased">
+    <Layout>
+      <NuxtPage />
+    </Layout>
   </div>
 </template>
 

@@ -35,7 +35,7 @@
     --radius: 0.5rem;
   }
  
-  .dark {
+  .dark, :root {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
  
@@ -45,8 +45,8 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
  
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 246 84% 67%;
+    --primary-foreground: 0 0% 100%;
  
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -71,6 +71,60 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-[#0B0B0F] text-foreground;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md transition-colors;
+  }
+  
+  .card {
+    @apply bg-[#111118] rounded-lg border border-gray-800 overflow-hidden hover:border-indigo-500/30 transition-all duration-300;
+  }
+  
+  .heading-xl {
+    @apply text-4xl md:text-5xl font-semibold;
+  }
+  
+  .heading-lg {
+    @apply text-3xl font-semibold;
+  }
+  
+  .heading-md {
+    @apply text-2xl font-semibold;
+  }
+  
+  .heading-sm {
+    @apply text-xl font-medium;
+  }
+  
+  .text-body {
+    @apply text-gray-300;
+  }
+  
+  .text-muted {
+    @apply text-gray-400;
+  }
+  
+  .badge {
+    @apply text-xs px-2 py-1 rounded;
+  }
+  
+  .badge-primary {
+    @apply badge bg-indigo-500/20 text-indigo-300;
+  }
+  
+  .badge-secondary {
+    @apply badge bg-emerald-500/20 text-emerald-300;
+  }
+  
+  .badge-accent {
+    @apply badge bg-blue-500/20 text-blue-300;
   }
 } 
