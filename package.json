@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "nuxt-supabase-trpc-app",
   "private": true,
   "type": "module",
   "scripts": {
@@ -7,20 +7,50 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare && prisma generate",
+    "lint": "eslint .",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio",
+    "start": "nuxt start"
   },
   "dependencies": {
-    "nuxt": "^3.15.4",
-    "vue": "latest",
-    "vue-router": "latest"
+    "@nuxt/image": "^1.2.0",
+    "@nuxtjs/supabase": "^1.1.5",
+    "@prisma/client": "^5.6.0",
+    "@radix-ui/colors": "^3.0.0",
+    "@supabase/supabase-js": "^2.49.4",
+    "@trpc/client": "^10.44.1",
+    "@trpc/server": "^10.44.1",
+    "@vueuse/core": "^10.7.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "radix-vue": "^1.2.5",
+    "shadcn-vue": "^0.1.0",
+    "superjson": "^2.2.1",
+    "tailwind-merge": "^2.1.0",
+    "tailwindcss-animate": "^1.0.7",
+    "trpc-nuxt": "^0.10.15",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.11.4",
-    "@types/node": "^22.13.4",
-    "@vue/tsconfig": "^0.7.0",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.7.3",
-    "vue-tsc": "~2.1.6"
-  }
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/tailwindcss": "^6.10.1",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "nuxt": "^3.8.2",
+    "postcss": "^8.4.31",
+    "prettier": "^3.1.0",
+    "prisma": "^5.6.0",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.3.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "packageManager": "pnpm@8.10.0"
 }

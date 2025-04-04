@@ -1,14 +1,17 @@
 <template>
-  <AppLayout>
-    <div class="space-y-8">
-      <h1 class="text-4xl font-bold">Welcome to EgorDev Blog</h1>
-      <p class="text-xl text-gray-600">
-        A place for sharing thoughts about development, technology, and more.
-      </p>
+  <div class="container mx-auto px-4 py-10">
+    <h1 class="text-4xl font-bold mb-6">Welcome to Your Nuxt.js App</h1>
+    <p class="text-lg mb-4">
+      This project uses Nuxt.js, Tailwind CSS, Shadcn UI, Prisma, Supabase, and tRPC.
+    </p>
+    <div class="flex gap-4 mt-6">
+      <button class="bg-primary text-primary-foreground px-4 py-2 rounded">
+        Get Started
+      </button>
     </div>
-  </AppLayout>
+  </div>
 </template>
 
 <script setup lang="ts">
-import AppLayout from '~/components/layout/AppLayout.vue'
+// You can add your script logic here
 </script> 
