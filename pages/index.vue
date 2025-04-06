@@ -218,7 +218,7 @@ onUnmounted(() => {
 .typing-text {
   font-family: monospace;
   font-size: 1rem;
-  color: rgba(115, 230, 163, 0.9);
+  color: rgba(193, 143, 255, 0.9);
 }
 
 .background-effects {
