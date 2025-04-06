@@ -28,7 +28,7 @@ const projects = [
   {
     title: 'Git',
     description: 'My code repositories',
-    url: 'https://github.com',
+    url: 'https://github.com/KindImagination',
     imageSrc: '/images/github.png'
   },
   {
