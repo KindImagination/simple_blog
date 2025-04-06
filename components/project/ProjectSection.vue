@@ -1,8 +1,7 @@
 <template>
   <div class="project-section-container">
     <div class="section-heading">
-      <div class="heading-title">Projects</div>
-      <div class="heading-subtitle">Things I've built so far</div>
+      <div class="heading-title">What I've built</div>
     </div>
     
     <div ref="projectsContainer" class="projects-container">
@@ -27,10 +26,10 @@ const projectsContainer = ref<HTMLElement | null>(null);
 
 const projects = [
   {
-    title: 'Personal Website',
-    description: 'My portfolio website',
-    url: 'https://example.com',
-    imageSrc: '/images/icon-web.svg'
+    title: 'Git',
+    description: 'My code repositories',
+    url: 'https://github.com',
+    imageSrc: '/images/github.png'
   },
   {
     title: 'AI Assistant',
@@ -71,35 +70,51 @@ const projects = [
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 2rem 1rem;
+  padding: 3rem 1.5rem;
   margin-top: 2rem;
-  gap: 2rem;
+  gap: 2.5rem;
+  background: radial-gradient(circle at center, rgba(30, 30, 45, 0.3), transparent 70%);
 }
 
 .section-heading {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .heading-title {
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: 700;
   background: linear-gradient(90deg, #E8E8F6, #c7c7ea);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+  display: inline-block;
+}
+
+.heading-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(115, 103, 240, 0.8), rgba(193, 143, 255, 0.6));
+  transform: translateX(-50%);
+  border-radius: 3px;
 }
 
 .heading-subtitle {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: rgba(179, 179, 193, 0.8);
+  margin-top: 1rem;
 }
 
 .projects-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -108,23 +123,30 @@ const projects = [
 .project-card-item {
   display: flex;
   height: 100%;
-  min-height: 65px;
-  max-height: 70px;
+  min-height: 80px;
 }
 
 @media (min-width: 768px) {
   .project-section-container {
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
   }
 
   .projects-container {
     grid-template-columns: repeat(3, 1fr);
   }
+  
+  .heading-title {
+    font-size: 2.25rem;
+  }
 }
 
 @media (max-width: 767px) {
   .projects-container {
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  
+  .project-section-container {
+    padding: 2.5rem 1.25rem;
   }
 }
 </style> 

@@ -10,7 +10,7 @@
         </div>
       </div>
     </section>
-
+    
     <!-- Project Section -->
     <ProjectSection />
 
