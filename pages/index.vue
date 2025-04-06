@@ -5,8 +5,19 @@
       <div class="hero-content">
         <h1 class="hero-title">Hi, I'm<span class="gradient-text">Egor</span></h1>
         <p class="hero-subtitle">Building digital experiences through code</p>
-        <div class="terminal-typing">
-          <span id="typing-effect" class="typing-text"></span>
+
+        <div class="terminal-container">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <span class="terminal-button close"></span>
+              <span class="terminal-button minimize"></span>
+              <span class="terminal-button maximize"></span>
+            </div>
+            <div class="terminal-title">terminal</div>
+          </div>
+          <div class="terminal-body">
+            <span id="typing-effect" class="typing-text"></span>
+          </div>
         </div>
       </div>
     </section>
@@ -77,6 +88,82 @@ onUnmounted(() => {
 </script>
 
 <style>
+.terminal-container {
+  margin: 1.5rem auto 0;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: rgba(30, 30, 45, 0.7);
+  backdrop-filter: blur(8px);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(115, 103, 240, 0.2);
+  transition: all 0.3s ease;
+}
+
+.terminal-container:hover {
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(115, 103, 240, 0.4);
+  transform: translateY(-2px);
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 8px 15px;
+  background-color: rgba(40, 40, 60, 0.9);
+  border-bottom: 1px solid rgba(115, 103, 240, 0.2);
+}
+
+.terminal-title {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: monospace;
+  text-transform: lowercase;
+}
+
+.terminal-buttons {
+  position: absolute;
+  left: 15px;
+  display: flex;
+  gap: 6px;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.terminal-button.close {
+  background-color: rgba(255, 95, 86, 0.8);
+}
+
+.terminal-button.minimize {
+  background-color: rgba(255, 189, 46, 0.8);
+}
+
+.terminal-button.maximize {
+  background-color: rgba(39, 201, 63, 0.8);
+}
+
+.terminal-button:hover {
+  transform: scale(1.1);
+}
+
+.terminal-body {
+  padding: 15px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+
 .main-wrapper {
   position: relative;
   width: 100%;
