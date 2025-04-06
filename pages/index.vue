@@ -5,6 +5,9 @@
       <div class="hero-content">
         <h1 class="hero-title">Hi, I'm<span class="gradient-text">Egor</span></h1>
         <p class="hero-subtitle">Building digital experiences through code</p>
+        <div class="terminal-typing">
+          <span id="typing-effect" class="typing-text"></span>
+        </div>
       </div>
     </section>
 
@@ -28,6 +31,49 @@
 
 <script setup lang="ts">
 import ProjectSection from '~/components/project/ProjectSection.vue';
+import { onMounted, onUnmounted } from 'vue';
+
+let typedInstance: any = null;
+
+onMounted(() => {
+  if (typeof window !== 'undefined') {
+    import('typed.js').then(({ default: Typed }) => {
+      typedInstance = new Typed('#typing-effect', {
+        strings: [
+          " welcome you to my personal space",
+          " let's explore it together!"
+        ],
+        typeSpeed: 50,
+        backSpeed: 30,
+        startDelay: 1000,
+        backDelay: 2000,
+        loop: true,
+        showCursor: true,
+        cursorChar: '|',
+        preStringTyped: function() {
+          const typingElement = document.getElementById('typing-effect');
+          if (typingElement && !typingElement.textContent?.startsWith(">_")) {
+            typingElement.innerHTML = ">_" + typingElement.innerHTML;
+          }
+        },
+        onReset: function() {
+          const typingElement = document.getElementById('typing-effect');
+          if (typingElement) {
+            typingElement.innerHTML = ">_";
+          }
+        }
+      });
+    }).catch(err => {
+      console.error('Failed to load Typed.js:', err);
+    });
+  }
+});
+
+onUnmounted(() => {
+  if (typedInstance) {
+    typedInstance.destroy();
+  }
+});
 </script>
 
 <style>
@@ -74,7 +120,18 @@ import ProjectSection from '~/components/project/ProjectSection.vue';
 .hero-subtitle {
   font-size: 1.25rem;
   color: rgba(179, 179, 193, 0.8);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.terminal-typing {
+  margin-top: 1rem;
+  height: 24px;
+}
+
+.typing-text {
+  font-family: monospace;
+  font-size: 1rem;
+  color: rgba(115, 230, 163, 0.9);
 }
 
 .background-effects {
