@@ -113,6 +113,9 @@ export function setupMagicalHover(): () => void {
       // Use requestAnimationFrame to optimize rendering
       frameId = requestAnimationFrame(() => {
         elements.forEach((element) => {
+          // Skip if element is no longer in the DOM
+          if (!element.isConnected) return;
+          
           const rect = element.getBoundingClientRect();
           const x = e.clientX - rect.left;
           const y = e.clientY - rect.top;
@@ -181,8 +184,13 @@ export function setupMagicalHover(): () => void {
     elements = [];
     glowElements = {};
     
+    console.log('Initializing MagicalHover, scanning for .magical elements');
+    
     // Query DOM only once
-    document.querySelectorAll('.magical').forEach((el, index) => {
+    const magicalElements = document.querySelectorAll('.magical');
+    console.log(`Found ${magicalElements.length} .magical elements`);
+    
+    magicalElements.forEach((el, index) => {
       const element = el as HTMLElement;
       
       // Create a unique ID for this element if it doesn't exist
@@ -190,32 +198,39 @@ export function setupMagicalHover(): () => void {
         element.dataset.magicalId = `magical-${index}`;
       }
       
-      // Add glow element only if needed
-      if (!element.querySelector('.magical-glow')) {
-        const glowEl = document.createElement('div');
-        glowEl.className = 'magical-glow';
-        element.appendChild(glowEl);
-        
-        // Add inner shadow element for depth
-        if (!element.querySelector('.magical-inner-shadow')) {
-          const shadowEl = document.createElement('div');
-          shadowEl.className = 'magical-inner-shadow';
-          element.appendChild(shadowEl);
+      // Cleanup old magical-glow elements to avoid duplication
+      const oldGlowElements = element.querySelectorAll('.magical-glow');
+      oldGlowElements.forEach(oldEl => {
+        if (oldEl.parentNode === element) {
+          element.removeChild(oldEl);
         }
-        
-        // Ensure parent has position relative
-        if (getComputedStyle(element).position === 'static') {
-          element.style.position = 'relative';
+      });
+      
+      // Cleanup old magical-inner-shadow elements to avoid duplication
+      const oldShadowElements = element.querySelectorAll('.magical-inner-shadow');
+      oldShadowElements.forEach(oldEl => {
+        if (oldEl.parentNode === element) {
+          element.removeChild(oldEl);
         }
-        
-        // Cache glow element
-        glowElements[element.dataset.magicalId!] = glowEl;
-      } else {
-        const glowEl = element.querySelector('.magical-glow') as HTMLElement;
-        if (glowEl) {
-          glowElements[element.dataset.magicalId!] = glowEl;
-        }
+      });
+      
+      // Add glow element
+      const glowEl = document.createElement('div');
+      glowEl.className = 'magical-glow';
+      element.appendChild(glowEl);
+      
+      // Add inner shadow element for depth
+      const shadowEl = document.createElement('div');
+      shadowEl.className = 'magical-inner-shadow';
+      element.appendChild(shadowEl);
+      
+      // Ensure parent has position relative
+      if (getComputedStyle(element).position === 'static') {
+        element.style.position = 'relative';
       }
+      
+      // Cache glow element
+      glowElements[element.dataset.magicalId!] = glowEl;
       
       // Add initial transform style
       element.style.transform = 'perspective(800px) rotateX(0) rotateY(0)';
@@ -242,6 +257,7 @@ export function setupMagicalHover(): () => void {
   
   // Event listener for reinitializing magical effects
   const handleReinitialize = () => {
+    console.log('Reinitializing MagicalHover effect');
     initializeElements();
   };
   
@@ -257,5 +273,8 @@ export function setupMagicalHover(): () => void {
     if (frameId !== null) {
       cancelAnimationFrame(frameId);
     }
+    
+    // Clean up elements
+    console.log('Cleaning up MagicalHover effect');
   };
 } 

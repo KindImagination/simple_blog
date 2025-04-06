@@ -135,11 +135,15 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, nextTick } from 'vue';
+import { onMounted, onUnmounted, ref, nextTick, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import { setupMagicalHover } from '~/components/utils/MagicalHover';
 
 // Mobile menu state
 const mobileMenuOpen = ref(false);
+
+// Get current route
+const route = useRoute();
 
 // Cleanup function for event listener
 let cleanupMagicalHover: (() => void) | undefined;
@@ -159,6 +163,22 @@ const initMagicalHover = () => {
     }
   });
 };
+
+// Watch for route changes to reinitialize magical hover
+watch(
+  () => route.path,
+  (newPath) => {
+    console.log('Route changed to:', newPath);
+    // Add a slight delay to ensure all components are mounted
+    setTimeout(() => {
+      // Dispatch custom event to reinitialize
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new Event('reinitialize-magical'));
+        console.log('Dispatched reinitialize-magical event after route change');
+      }
+    }, 100);
+  }
+);
 
 onMounted(() => {
   // Initial setup
