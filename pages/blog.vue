@@ -21,7 +21,7 @@
             <div class="flex justify-between items-center">
               <div class="flex items-center">
                 <div class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-300">A</div>
-                <span class="ml-2 text-sm text-gray-400">By Asorn</span>
+                <span class="ml-2 text-sm text-gray-400">By Egor</span>
               </div>
               <a href="#" class="text-indigo-400 hover:text-indigo-300 flex items-center">
                 Read more
@@ -45,7 +45,7 @@
             <div class="flex justify-between items-center">
               <div class="flex items-center">
                 <div class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-300">A</div>
-                <span class="ml-2 text-sm text-gray-400">By Asorn</span>
+                <span class="ml-2 text-sm text-gray-400">By Egor</span>
               </div>
               <a href="#" class="text-indigo-400 hover:text-indigo-300 flex items-center">
                 Read more
@@ -69,7 +69,7 @@
             <div class="flex justify-between items-center">
               <div class="flex items-center">
                 <div class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-300">A</div>
-                <span class="ml-2 text-sm text-gray-400">By Asorn</span>
+                <span class="ml-2 text-sm text-gray-400">By Egor</span>
               </div>
               <a href="#" class="text-indigo-400 hover:text-indigo-300 flex items-center">
                 Read more
