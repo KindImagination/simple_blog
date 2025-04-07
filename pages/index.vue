@@ -51,7 +51,7 @@ onMounted(() => {
     import('typed.js').then(({ default: Typed }) => {
       typedInstance = new Typed('#typing-effect', {
         strings: [
-          " welcome you to my personal space",
+          " welcome to my personal space",
           " let's explore it together!"
         ],
         typeSpeed: 50,
