@@ -37,6 +37,13 @@
             Blog
           </NuxtLink>
           <NuxtLink 
+            to="/books" 
+            class="nav-link"
+            :class="{ 'active': $route.path === '/books' }"
+          >
+            Books
+          </NuxtLink>
+          <NuxtLink 
             to="/about" 
             class="nav-link"
             :class="{ 'active': $route.path === '/about' }"
@@ -86,6 +93,14 @@
             @click="mobileMenuOpen = false"
           >
             Blog
+          </NuxtLink>
+          <NuxtLink 
+            to="/books" 
+            class="mobile-nav-link"
+            :class="{ 'active': $route.path === '/books' }"
+            @click="mobileMenuOpen = false"
+          >
+            Books
           </NuxtLink>
           <NuxtLink 
             to="/about" 
