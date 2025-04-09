@@ -9,27 +9,28 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
+        // Default favicon (fallback)
         {
           rel: "icon",
-          type: "image/png",
-          href: "/Kindimagination.png",
-          sizes: "64x64",
+          type: "image/x-icon",
+          href: "/favicon.ico",
         },
+        
         // Light mode
         {
           rel: "icon",
-          type: "image/png",
-          href: "/Kindimagination-light.png",
-          sizes: "64x64",
+          type: "image/svg+xml",
+          href: "/Kindimagination-light.svg",
+          sizes: "any",
           media: "(prefers-color-scheme: light)",
         },
 
         // Dark mode
         {
           rel: "icon",
-          type: "image/png",
-          href: "/Kindimagination-dark.png",
-          sizes: "64x64",
+          type: "image/svg+xml",
+          href: "/Kindimagination-dark.svg",
+          sizes: "any",
           media: "(prefers-color-scheme: dark)",
         },
       ],
