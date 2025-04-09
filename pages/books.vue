@@ -7,63 +7,28 @@
       
       <div class="book-list w-full flex flex-col">
         <div class="book-list-category w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          <!-- Book 1: Get Things Done -->
-          <div class="magical item bg-[#141419] rounded-xl shadow-lg">
-            <a href="https://www.amazon.com/Getting-Things-Done-Stress-Free-Productivity/dp/0143126563" target="_blank" 
-               class="flex flex-col items-center justify-start p-16 w-full">
+          <!-- Render books dynamically from the books array -->
+          <div 
+            v-for="book in books" 
+            :key="book.slug"
+            class="magical item bg-[#141419] rounded-xl shadow-lg"
+          >
+            <NuxtLink 
+              :to="`/singlebook/${book.slug}`"
+              class="flex flex-col items-center justify-start p-16 w-full"
+            >
               <div class="book-item relative w-28 h-40 flex justify-start items-center z-10">
                 <div class="b-wrapper b-page b-back absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-white opacity-[0.04] origin-center transform perspective-[1000px] rotate-y-0"></div>
                 <div class="b-wrapper b-page b-four absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-white opacity-[0.08] origin-left transform perspective-[1000px] -rotate-y-10"></div>
                 <div class="b-wrapper b-page b-three absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-white opacity-[0.12] origin-left transform perspective-[1000px] -rotate-y-15"></div>
                 <div class="b-wrapper b-page b-two absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-white opacity-[0.16] origin-left transform perspective-[1000px] -rotate-y-20"></div>
                 <div class="b-wrapper b-page b-one absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-[#62616F] origin-left transform perspective-[1000px] -rotate-y-25 flex flex-row justify-end items-start">
-                  <span class="b-one-title text-xs tracking-wider text-[#A8A8B6] writing-vertical-lr p-2">Getting Things Done</span>
+                  <span class="b-one-title text-xs tracking-wider text-[#A8A8B6] writing-vertical-lr p-2">{{ book.title }}</span>
                 </div>
                 <div class="b-wrapper b-front absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-white origin-left transform perspective-[1000px] -rotate-y-30 brightness-60 shadow-[inset_8px_0_8px_rgba(255,255,255,0.2)]"
-                     :style="{ backgroundImage: 'url(/images/Get_Things_Done.jpg)' }"></div>
+                     :style="{ backgroundImage: `url(${book.coverImage})` }"></div>
               </div>
-            </a>
-          </div>
-          
-          <!-- Add more book items as needed -->
-          <!-- Example for additional books (currently using same image) -->
-          <div class="magical item bg-[#141419] rounded-xl shadow-lg">
-            <a href="#" target="_blank" 
-               class="flex flex-col items-center justify-start p-16 w-full">
-              <div class="book-item relative w-28 h-40 flex justify-start items-center z-10">
-                <div class="b-wrapper b-page b-back absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-white opacity-[0.04] origin-center transform perspective-[1000px] rotate-y-0"></div>
-                <div class="b-wrapper b-page b-four absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-white opacity-[0.08] origin-left transform perspective-[1000px] -rotate-y-10"></div>
-                <div class="b-wrapper b-page b-three absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-white opacity-[0.12] origin-left transform perspective-[1000px] -rotate-y-15"></div>
-                <div class="b-wrapper b-page b-two absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-white opacity-[0.16] origin-left transform perspective-[1000px] -rotate-y-20"></div>
-                <div class="b-wrapper b-page b-one absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-[#62616F] origin-left transform perspective-[1000px] -rotate-y-25 flex flex-row justify-end items-start">
-                  <span class="b-one-title text-xs tracking-wider text-[#A8A8B6] writing-vertical-lr p-2">Book Title</span>
-                </div>
-                <div class="b-wrapper b-front absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-white origin-left transform perspective-[1000px] -rotate-y-30 brightness-60 shadow-[inset_8px_0_8px_rgba(255,255,255,0.2)]"
-                     :style="{ backgroundImage: 'url(/images/Get_Things_Done.jpg)' }"></div>
-              </div>
-            </a>
-          </div>
-        </div>
-        
-        <div class="category-divider w-full h-px my-10 bg-dotted-radial mask-radial"></div>
-        
-        <div class="book-list-category w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          <!-- Another book category -->
-          <div class="magical item bg-[#141419] rounded-xl shadow-lg">
-            <a href="#" target="_blank" 
-               class="flex flex-col items-center justify-start p-16 w-full">
-              <div class="book-item relative w-28 h-40 flex justify-start items-center z-10">
-                <div class="b-wrapper b-page b-back absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-white opacity-[0.04] origin-center transform perspective-[1000px] rotate-y-0"></div>
-                <div class="b-wrapper b-page b-four absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-white opacity-[0.08] origin-left transform perspective-[1000px] -rotate-y-10"></div>
-                <div class="b-wrapper b-page b-three absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-white opacity-[0.12] origin-left transform perspective-[1000px] -rotate-y-15"></div>
-                <div class="b-wrapper b-page b-two absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-white opacity-[0.16] origin-left transform perspective-[1000px] -rotate-y-20"></div>
-                <div class="b-wrapper b-page b-one absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-[#62616F] origin-left transform perspective-[1000px] -rotate-y-25 flex flex-row justify-end items-start">
-                  <span class="b-one-title text-xs tracking-wider text-[#A8A8B6] writing-vertical-lr p-2">Book Title</span>
-                </div>
-                <div class="b-wrapper b-front absolute w-28 h-40 bg-cover bg-center rounded-r-md border border-white origin-left transform perspective-[1000px] -rotate-y-30 brightness-60 shadow-[inset_8px_0_8px_rgba(255,255,255,0.2)]"
-                     :style="{ backgroundImage: 'url(/images/Get_Things_Done.jpg)' }"></div>
-              </div>
-            </a>
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -88,6 +53,7 @@
 import { onMounted, onUnmounted, ref, nextTick, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { setupMagicalHover } from '~/components/utils/MagicalHover';
+import { books } from '~/data/books';
 
 // Get current route
 const route = useRoute();
