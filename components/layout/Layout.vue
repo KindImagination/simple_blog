@@ -3,6 +3,12 @@
     <!-- Canvas for fireworks animation (can be implemented later) -->
     <canvas class="fireworks"></canvas>
     
+    <!-- Wave element moved to top of the page -->
+    <div class="wave-container">
+      <div class="wave wave1"></div>
+      <div class="wave wave2"></div>
+    </div>
+    
     <!-- Navigation Bar -->
     <header class="site-header py-4 px-6 md:px-8 relative z-20">
       <div class="container mx-auto flex items-center justify-between">
@@ -59,12 +65,6 @@
             <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-      </div>
-      
-      <!-- Wave element -->
-      <div class="wave-container">
-        <div class="wave wave1"></div>
-        <div class="wave wave2"></div>
       </div>
       
       <!-- Mobile menu - shows when mobileMenuOpen is true -->
@@ -359,18 +359,22 @@ onUnmounted(() => {
 
 /* Wave element animation */
 .wave-container {
-  position: relative;
-  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px; /* Increased height for better visibility */
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
   overflow: hidden;
+  padding: 0;
+  margin: 0;
+  z-index: 15; /* Lower than header's z-index of 20 to ensure header elements remain clickable */
 }
 
 .wave {
   position: absolute;
   width: 100%;
-  height: 40px;
+  height: 80px; /* Match the container's height */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.15' fill='%234b11d8'/%3E%3C/svg%3E");
   background-size: 1200px 100%;
   z-index: 5;
